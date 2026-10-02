@@ -7,6 +7,7 @@ import streamlit as st
 from content import SOURCES,TOPICS,CHECKLIST,STEPS,MISTAKES,MISSED,MYTHS,ESCALATE
 from calculations import STANDARD,BRACKETS,RATES
 from tools import render
+from review import render as final_review
 st.set_page_config(page_title='Tax Filing Compass',page_icon='🧾',layout='wide')
 st.title('🧾 Tax Filing Compass')
 st.caption('2025 tax year · Federal + California · Sources checked October 1, 2026')
@@ -85,6 +86,7 @@ with tabs[1]:
     st.subheader('Official IRS and FTB links for filing')
     frame([{'Task':n,'Official link':u} for n,u in SOURCES.items()])
     st.caption('IRS Free File guided software uses a 2025 AGI threshold of $89,000, with partner-specific eligibility and possible state charges. Fillable Forms closes October 15, 2026 and requires greater tax knowledge; choose a tool that supports your forms.')
+    final_review(edited)
 for tab,topic in zip(tabs[2:2+len(TOPICS)],TOPICS):
     title,meaning,example,action,metric,ref=topic
     with tab:

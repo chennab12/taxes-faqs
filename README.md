@@ -9,7 +9,7 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Keep `app.py`, `content.py`, `calculations.py`, `tools.py` and `requirements.txt` in the same repository folder. For Streamlit Cloud set the main file path to `app.py` or its repository-relative path. This deliverable does not change the live website.
+Keep `app.py`, `content.py`, `calculations.py`, `tools.py`, `review.py` and `requirements.txt` in the same repository folder. For Streamlit Cloud set the main file path to `app.py` or its repository-relative path. This deliverable does not change the live website.
 
 ## Important scope
 
@@ -24,3 +24,9 @@ Relevant household topics include rental property, employee equity and HSA/CA ad
 ## Validation
 
 Python compilation, tax bracket boundaries, payment reconciliation and medical-threshold arithmetic passed. Streamlit AppTest rendered the app and exercised all six filing-calculator modes without exceptions.
+
+## Final-review additions
+
+The filing tab ends with applicability screens, 21 tickable final controls, completion metrics linked to the primary checklist, JSON progress backup/restore, an evidence-based source/entry reconciliation ledger with $0.50 rounding tolerance, forms-coverage reference and an editable hypothetical two-engineer California household example. Sample wages are invented, not market salary estimates. The example computes regular federal tax only and explicitly flags AMT/NIIT/Additional Medicare/California omissions. CTC calculation is only a phaseout screen for one otherwise eligible child and sufficient regular tax; no general credit eligibility is certified. High-MAGI SALT requires the official worksheet. All fields are session-local unless downloaded; restrict downloads to secure personal storage.
+
+Final-review validation: Streamlit AppTest passed tick updates, conditional applicability, document-coverage counts, dynamic salary/MAGI changes and the high-MAGI SALT branch. Child-credit phaseout boundary arithmetic passed.
