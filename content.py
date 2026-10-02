@@ -1,0 +1,137 @@
+"""Curated US/California individual-tax education for tax year 2025."""
+SOURCES={
+'1040 instructions':'https://www.irs.gov/instructions/i1040gi',
+'General tax guide':'https://www.irs.gov/publications/p17',
+'Document checklist':'https://www.irs.gov/filing/gather-your-documents',
+'Extension':'https://www.irs.gov/filing/get-an-extension-to-file-your-tax-return',
+'Brackets':'https://www.irs.gov/filing/federal-income-tax-rates-and-brackets',
+'Standard deduction':'https://www.irs.gov/publications/p501',
+'Itemized deductions':'https://www.irs.gov/instructions/i1040sca',
+'Additional deductions':'https://www.irs.gov/instructions/i1040s1a',
+'Child Tax Credit':'https://www.irs.gov/credits-deductions/individuals/child-tax-credit',
+'Childcare':'https://www.irs.gov/publications/p503',
+'Investments':'https://www.irs.gov/publications/p550',
+'ESPP':'https://www.irs.gov/faqs/capital-gains-losses-and-sale-of-home/stocks-options-splits-traders/stocks-options-splits-traders-5',
+'HSA':'https://www.irs.gov/publications/p969',
+'IRA':'https://www.irs.gov/publications/p590a',
+'Rental':'https://www.irs.gov/publications/p527',
+'Small business':'https://www.irs.gov/publications/p334',
+'Estimated tax':'https://www.irs.gov/publications/p505',
+'FBAR':'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar',
+'Foreign assets':'https://www.irs.gov/instructions/i8938',
+'Free File':'https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free',
+'Fillable forms':'https://www.irs.gov/e-file-providers/free-file-fillable-forms',
+'IRS account':'https://www.irs.gov/payments/online-account-for-individuals',
+'Transcripts':'https://www.irs.gov/individuals/get-transcript',
+'Payments':'https://www.irs.gov/payments',
+'Payment plans':'https://www.irs.gov/payments/online-payment-agreement-application',
+'IP PIN':'https://www.irs.gov/identity-theft-fraud-scams/get-an-identity-protection-pin',
+'Disaster relief':'https://www.irs.gov/newsroom/tax-relief-in-disaster-situations',
+'Records':'https://www.irs.gov/taxtopics/tc305',
+'Amendments':'https://www.irs.gov/filing/file-an-amended-return',
+'CA deadlines':'https://www.ftb.ca.gov/file/when-to-file/extension-to-file.html',
+'CA return':'https://www.ftb.ca.gov/forms/2025/2025-540-booklet.html',
+'CA adjustments':'https://www.ftb.ca.gov/forms/2025/2025-540-ca-instructions.html',
+'CA deductions':'https://www.ftb.ca.gov/file/personal/deductions/index.html',
+'CA payments':'https://www.ftb.ca.gov/pay/index.html'
+}
+# Area, core meaning, example, practical action, key metric/formula, source.
+TOPICS=[
+('🧭 Tax basics','Gross income, adjustments, AGI, deductions, taxable income, credits and payments are different stages.','A deduction lowers taxable income; a credit reduces eligible tax dollar-for-dollar.','Follow the Form 1040 flow rather than equating salary to taxable income.','Taxable income = AGI − applicable deductions','General tax guide'),
+('👨‍👩‍👦 Filing status & dependents','Status and dependent eligibility depend on year-end circumstances and detailed tests.','Married filing jointly differs from head of household; a parent abroad is not automatically a dependent.','Verify relationships, residency, support, citizenship/residency and SSN rules.','Age at December 31, 2025; residency and support tests','Standard deduction'),
+('💼 Wages & side income','Include taxable income even when no information form arrives.','W-2, freelance receipts, unemployment and taxable interest use different entries.','Reconcile every payer; avoid duplicating imported and manually entered forms.','Gross receipts − allowable business expenses','Small business'),
+('📈 Investments & equity awards','Basis, holding periods, compensation and wash-sale adjustments drive reporting.','ESPP stock can involve ordinary income plus capital gain/loss.','Reconcile W-2, 1099-B, supplemental basis, Form 3922 and corporate actions.','Net proceeds − adjusted basis = gain/loss','Investments'),
+('🏠 Home & rental property','Personal-home itemization and rental expenses follow separate rules.','Rental HOA fees and mortgage interest differ from principal repayment.','Keep separate property ledgers and the prior depreciation schedule.','Rent − deductible expenses − depreciation, before loss limits','Rental'),
+('🧾 Standard vs itemized','Compare eligible itemized deductions with the applicable standard deduction.','Mortgage interest plus allowed personal SALT plus charitable gifts may exceed the base deduction.','Apply deductibility and limits before comparing totals.','2025 base MFJ $31,500; single/MFS $15,750; HOH $23,625','Itemized deductions'),
+('🎁 Credits & 2025 changes','Credit eligibility and phaseouts differ; new Schedule 1-A deductions have specific conditions.','2025 CTC up to $2,200 per qualifying child; not automatic eligibility.','Check CTC, childcare, education, energy and Schedule 1-A separately.','Federal SALT cap generally $40,000; MAGI reduction may apply','Child Tax Credit'),
+('🏥 HSA & retirement','Contribution eligibility, payroll treatment, distributions and deadlines must reconcile.','W-2 code W includes employer and payroll HSA contributions.','Use Form 8889; do not deduct excluded payroll contributions twice.','2025 HSA base limits: self $4,300; family $8,550, subject to eligibility','HSA'),
+('🌴 California taxes','California income and deductions can differ from federal treatment.','California HSA treatment and 2025 federal Schedule 1-A deductions require review.','Complete state interview and Schedule CA; inspect each adjustment.','2025 CA base standard deduction: MFJ/HOH $11,412; single/MFS $5,706','CA adjustments'),
+('🌍 Foreign accounts & assets','Income tax, FBAR and Form 8938 are separate obligations.','An India bank account can require reporting even without a US information form.','Determine US tax status; review worldwide income, account maximums and foreign asset rules.','FBAR generally triggered when aggregate foreign financial accounts exceed $10,000 at any time','FBAR'),
+('💳 Payments & planning','Withholding and estimated/extension payments reduce the remaining balance, not taxable income.','An April extension payment belongs to the correct tax year and payment category.','Reconcile IRS and CA confirmations; pay balances using official channels.','Balance = final tax − withholding − payments − eligible refundable credits','Estimated tax'),
+('🛡️ Records, security & corrections','Keep filing evidence, source documents and basis records; correct errors deliberately.','E-file submitted is different from accepted.','Verify both federal and state acceptance; retain evidence and use current amendment guidance.','Open issues; missing documents; acceptance status','Records')
+]
+CHECKLIST=[
+('Deadline','Federal extension and relief','Form 4868/payment-extension confirmation; any relief notice','Confirm timely extension; otherwise file promptly, do not assume October is available','Extension'),
+('Identity','Names, tax IDs, birth dates, address','Legal records for taxpayer, spouse and each dependent','Enter only in trusted tax software; do not store IDs in this dashboard','Document checklist'),
+('Identity','Filing status and dependents','Marriage, residency, support and custody facts','Confirm status as of year-end and dependency tests','Standard deduction'),
+('Access','Prior return and e-file authentication','2024 return, prior-year AGI, current IP PIN if issued','Use required signature authentication; both spouses sign joint return','IP PIN'),
+('Income','All wages and withholding','All W-2s including spouse; corrected W-2 if issued','Reconcile employer names, wages and federal/state withholding','Document checklist'),
+('Income','Interest, dividends, investments','1099-INT/DIV/B/OID; consolidated broker statements','Include all accounts, corrected statements and eligible foreign-source income','Investments'),
+('Equity','RSUs, ESPP, options','W-2, 1099-B, supplemental basis, award documents, 3922/3921 if applicable','Avoid double tax on compensation; inspect cost basis and dates','ESPP'),
+('Income','Other receipts','1099-NEC/MISC/K/G/R, SSA-1099, K-1, cash receipts','Classify income; form thresholds do not determine whether income is taxable','General tax guide'),
+('Rental','Rent and deposits','Rental ledger, lease, manager statement, security deposit record','Reconcile gross rent, retained deposits and advance rent','Rental'),
+('Rental','Expenses by property','Interest, tax, HOA, insurance, repairs, utilities, management invoices','Separate personal and rental costs; mortgage principal is not an expense','Rental'),
+('Rental','Depreciation and carryovers','Acquisition/basis records, land allocation, placed-in-service date, prior depreciation and Form 8582','Carry schedules forward; classify improvements; do not assume all losses offset wages','Rental'),
+('Deductions','Personal mortgage and SALT','1098; actual property-tax payments; state withholding/estimates','Exclude rental deductions and escrow deposits not actually disbursed','Itemized deductions'),
+('Deductions','Charity and medical','Receipts, acknowledgments, eligible unreimbursed medical costs','Apply substantiation and thresholds; no double count of reimbursed expenses','Itemized deductions'),
+('Health','HSA and health coverage','1099-SA, 5498-SA, W-2 code W, receipts; 1095-A if marketplace','Reconcile Form 8889; Form 8962 may be needed for marketplace coverage','HSA'),
+('Retirement','Contributions and distributions','1099-R, 5498, IRA basis/carryovers, rollover documents','Check conversion, rollover and Form 8606 treatment; no new ordinary 2025 IRA/HSA contribution in October','IRA'),
+('Credits','Child and dependent care','Age/SSN, care provider records, work-related care expenses, W-2 dependent-care benefits','Check eligibility and avoid double benefit; K–12 tuition alone is not qualifying childcare','Childcare'),
+('Credits','Education, energy, vehicle and other','1098-T, tuition records, invoices, purchase/placed-in-service dates, required IDs','Verify 2025 eligibility and changes; do not assume every improvement or vehicle qualifies','1040 instructions'),
+('2025 changes','Schedule 1-A screening','Eligible tip/overtime records, qualified vehicle-loan records, age/status facts','Tips, overtime, car interest and senior deductions each have limits and conditions','Additional deductions'),
+('International','Foreign accounts and assets','Maximum balances, income, tax paid, account ownership, exchange-rate records','Review Schedule B, FBAR, 8938 and foreign tax credit; get specialist help for foreign funds','Foreign assets'),
+('State','California return','Federal draft, CA withholding, residency facts, HSA records and state carryovers','Review Schedule CA adjustments and state-specific deductions/credits','CA return'),
+('Payments','Estimated and extension payments','Federal/CA payment confirmations and prior refund applied','Credit each payment once to the correct year and jurisdiction','Payments'),
+('Final review','Error resolution and reasonableness','Software diagnostics, prior return comparison, document reconciliation','Clear all material unexplained differences and unresolved questions','1040 instructions'),
+('Submission','Separate acceptance and payment evidence','Federal acceptance, CA acceptance, payment reference and return PDFs','Confirm both accepted; payment is a separate step','CA deadlines'),
+('Archive','Records and follow-up','Return, forms, workpapers, basis/depreciation schedules, acknowledgments','Keep long-lived basis records; record follow-up and future estimated-tax needs','Records')
+]
+STEPS=[
+('1','Today','Confirm deadline, extension, tax status and scope','Known filing obligation and deadline; escalate if extension absent'),
+('2','Oct 2–3','Gather documents and compare with 2024 return','Missing-document list with owner and resolution date'),
+('3','Oct 3–4','Choose 2025 software supporting rental, employee equity, HSA and CA','Required forms supported; software updated for 2025 changes'),
+('4','Oct 4–6','Enter identity, dependents and all income','All payers reconciled; no duplicate imports'),
+('5','Oct 6–8','Complete investments, rental and HSA/IRA interviews','Basis, depreciation, carryovers and contributions reconciled'),
+('6','Oct 8–9','Compare deductions; screen credits and Schedule 1-A','Eligibility documented; federal/CA differences flagged'),
+('7','Oct 9–10','Finish CA interview and all payment entries','State adjustments and balances reviewed independently'),
+('8','Oct 10–11','Read generated 1040, schedules and 540; resolve diagnostics','Each major line traceable to a source; no unresolved material issue'),
+('9','Oct 12–13','E-file both returns and arrange any payment','Submitted early enough to address rejection; payment confirmation'),
+('10','Before Oct 15','Verify federal and CA acceptance; separately file FBAR if required','Acceptance evidence for each; separate FBAR confirmation'),
+('11','After filing','Archive and review 2026 withholding/estimated taxes','Saved package and calendar for future obligations')
+]
+MISTAKES=[
+('Assuming everyone has until October 15','Federal extension generally had to be obtained by April deadline','Check confirmation or qualifying relief; file promptly if absent'),
+('Treating filing extension as payment extension','Unpaid tax may accrue interest and penalties from original due date','Reconcile April payments and pay remaining balance promptly'),
+('Using 2026 figures on a 2025 return','Tax year and filing year are different','Set software to 2025 and check revised 2025 thresholds'),
+('Leaving out income without a 1099','Taxability is not determined by whether a form arrived','Reconcile accounts and business/rental ledgers'),
+('Double-taxing employee shares','Compensation basis may need adjustment','Reconcile W-2 and supplemental basis against 1099-B'),
+('Duplicating HSA deductions','Payroll exclusion already provides a benefit','Reconcile code W and direct contributions on 8889'),
+('Deducting mortgage principal or all improvements','Principal is not rental expense; improvements may be capitalized','Separate interest and classify costs with Pub 527'),
+('Ignoring CA nonconformity','Federal treatment does not automatically apply','Review HSA and 2025 changes in Schedule CA'),
+('Claiming unsupported credits','Age, income, documentation and other tests matter','Use complete interviews and retain eligibility evidence'),
+('Ignoring e-file rejection','Submission alone is not acceptance','Read acknowledgments and promptly follow provider/IRS rejection instructions'),
+('Entering tax payments twice or in wrong year','Refund/balance becomes incorrect','Match every entry to confirmation and jurisdiction'),
+('Waiting until deadline day','Missing forms or rejection leave little repair time','Target Oct 12–13 submission; track acceptance')
+]
+MISSED=[
+('Carryovers','Prior capital-loss, passive-loss, credit and IRA basis records','Compare prior schedules, not only Form 1040'),
+('Corrected brokerage forms','Year-end consolidated 1099 may be superseded','Download final/corrected statements'),
+('Rental depreciation','An allowed-or-allowable issue affects future basis','Carry existing schedules forward; seek help for omitted prior depreciation'),
+('Escrow timing','Deposit to escrow is not itself proof tax was paid','Use actual property-tax disbursements'),
+('Refund applied to 2025','Prior election is a tax payment','Check 2024 return and account record'),
+('Marketplace 1095-A','Premium tax credit reconciliation may be required','Complete Form 8962 interview even if other coverage forms are absent'),
+('Foreign accounts','FBAR is separate from income tax return','Review aggregate account maximums and file FinCEN report if required'),
+('New 2025 rules','SALT increase, CTC change and Schedule 1-A screening','Use updated 2025 instructions, not old worksheets'),
+('CA HSA earnings','State adjustments can require records absent from standard 1099 forms','Retain investment earnings/basis records and review Schedule CA'),
+('Both-spouse signatures and IP PINs','Electronic authentication and names must match','Verify signatures and current required PIN before transmission')
+]
+MYTHS=[
+('Extension means I can pay in October','A filing extension generally does not extend April payment deadline.'),
+('Higher bracket taxes all income at higher rate','Only income in each bracket is taxed at that bracket’s rate.'),
+('A deduction saves its full dollar amount','A credit and deduction work differently; deduction value depends on tax computation.'),
+('No 1099 means no reportable income','You must report taxable income even without an information return.'),
+('A large refund means lower total tax','Refund largely reflects payments and credits versus final liability.'),
+('ESPP discount is always taxed as only capital gain','An ESPP disposition can include ordinary income and capital gain/loss.'),
+('A rental loss always reduces salary tax','Passive-activity and at-risk rules can limit current deduction.'),
+('All October IRA/HSA deposits can count for 2025','The ordinary 2025 contribution deadline was April 15, 2026; an extension to file does not generally extend it.'),
+('Federal deductions automatically apply to California','California has differences; use Schedule CA and 2025 FTB instructions.'),
+('Software acceptance proves the return is correct','Acceptance confirms processing eligibility, not full substantive correctness.')
+]
+ESCALATE=[
+('Foreign mutual funds / PFICs or uncertain residency','Specialized forms and tax regimes','Seek experienced cross-border EA/CPA; do not guess'),
+('Missing rental basis/depreciation or prior omission','Method corrections can require more than an amended return','Consult rental-tax specialist'),
+('Options, ISO exercise, AMT, complex stock awards','Ordinary income, AMT and basis interact','Review with equity-compensation specialist'),
+('K-1, partnership, multi-state or business losses','Multiple limitations and carryovers','Use supported software and expert review where needed'),
+('Cannot pay','Filing and payment are different obligations','File required return; pay what you can and review IRS/FTB payment-plan guidance'),
+('Unknown extension status or disaster relief','Deadline and penalty consequences differ','Verify official confirmation and applicable relief promptly')
+]
